@@ -1,0 +1,206 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--bg-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: background v.$t-slow;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 v.$sp-6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: v.$sp-4;
+
+    @include m.respond(v.$bp-md) { padding: 0 v.$sp-4; }
+  }
+
+  &__logo {
+    font-family: v.$font-display;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text);
+    cursor: pointer;
+    letter-spacing: -0.02em;
+
+    span { color: var(--accent); }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: v.$sp-1;
+
+    @include m.respond(v.$bp-md) { gap: 0; }
+  }
+
+  &__btn {
+    padding: v.$sp-2 v.$sp-3;
+    border-radius: v.$radius-md;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color v.$t-fast, background v.$t-fast;
+    white-space: nowrap;
+
+    @include m.respond(v.$bp-md) {
+      padding: v.$sp-2;
+      font-size: 0.8rem;
+    }
+    @include m.respond(v.$bp-sm) { display: none; }
+
+    &:hover { color: var(--text); background: var(--chip-bg); }
+
+    &.active {
+      color: var(--text);
+      font-weight: 600;
+    }
+  }
+
+  &__icon-btn {
+    width: 38px; height: 38px;
+    border-radius: v.$radius-md;
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all v.$t-fast;
+    flex-shrink: 0;
+
+    &:hover { border-color: var(--accent); color: var(--accent); }
+  }
+
+  &__cart-btn {
+    display: flex;
+    align-items: center;
+    gap: v.$sp-2;
+    padding: v.$sp-2 v.$sp-4;
+    border-radius: v.$radius-full;
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all v.$t-fast;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 v.$sp-1;
+    border-radius: v.$radius-full;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: v.$font-mono;
+    line-height: 1;
+  }
+
+  &__divider {
+    width: 1px;
+    height: 20px;
+    background: var(--border);
+    margin: 0 v.$sp-2;
+
+    @include m.respond(v.$bp-sm) { display: none; }
+  }
+
+  // Lang toggle inside nav
+  &__lang {
+    display: flex;
+    align-items: center;
+    gap: v.$sp-1;
+    border-radius: v.$radius-full;
+    border: 1.5px solid var(--border);
+    background: var(--bg-input);
+    padding: 2px;
+    flex-shrink: 0;
+  }
+
+  &__lang-btn {
+    padding: 4px v.$sp-3;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: v.$font-mono;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: v.$radius-full;
+    transition: all v.$t-fast;
+    line-height: 1.4;
+
+    &.active {
+      background: var(--chip-active);
+      color: var(--chip-active-text);
+    }
+
+    &:hover:not(.active) { color: var(--text); }
+  }
+}
+
+// ── Mobile bottom nav ─────────────────────────
+.mobile-nav {
+  display: none;
+
+  @include m.respond(v.$bp-sm) {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 60px;
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+    align-items: stretch;
+  }
+
+  &__btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color v.$t-fast;
+    padding: v.$sp-2 0;
+
+    &.active { color: var(--accent); }
+
+    &__icon { font-size: 1.25rem; line-height: 1; }
+  }
+}

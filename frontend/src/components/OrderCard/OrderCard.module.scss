@@ -1,0 +1,97 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.card {
+  @include m.card;
+  padding: v.$sp-5;
+  margin-bottom: v.$sp-4;
+  transition: box-shadow v.$t-base;
+
+  &:hover { box-shadow: v.$shadow-md; }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: v.$sp-4;
+  margin-bottom: v.$sp-4;
+  flex-wrap: wrap;
+}
+
+.orderId {
+  font-family: v.$font-mono;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: v.$sp-1;
+}
+
+.shopName {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.right { text-align: right; }
+
+.status {
+  display: inline-block;
+  padding: v.$sp-1 v.$sp-3;
+  border-radius: v.$radius-full;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: v.$sp-1;
+
+  &.pending    { background: #fef3c7; color: #92400e; }
+  &.preparing  { background: #dbeafe; color: #1e40af; }
+  &.delivering { background: #ede9fe; color: #5b21b6; }
+  &.delivered  { background: #d1fae5; color: #065f46; }
+
+  [data-theme='dark'] & {
+    &.pending    { background: #451a03; color: #fcd34d; }
+    &.preparing  { background: #1e3a5f; color: #93c5fd; }
+    &.delivering { background: #2e1065; color: #c4b5fd; }
+    &.delivered  { background: #064e3b; color: #6ee7b7; }
+  }
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$sp-2;
+  margin-bottom: v.$sp-4;
+  padding-bottom: v.$sp-4;
+  border-bottom: 1px solid var(--border);
+}
+
+.item {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  padding: v.$sp-1 v.$sp-3;
+  border-radius: v.$radius-full;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  font-family: v.$font-mono;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.reorderBtn {
+  @include m.btn-primary;
+  padding: v.$sp-2 v.$sp-5;
+  font-size: 0.88rem;
+}

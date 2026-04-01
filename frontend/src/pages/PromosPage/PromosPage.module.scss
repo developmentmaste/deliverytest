@@ -1,0 +1,5 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.page { padding-bottom: v.$sp-16; }
+.grid { @include m.grid-cards(260px); }

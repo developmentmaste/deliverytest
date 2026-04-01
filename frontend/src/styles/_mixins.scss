@@ -1,0 +1,100 @@
+@use 'variables' as v;
+
+@mixin respond($bp) {
+  @media (max-width: #{$bp}) { @content; }
+}
+
+@mixin card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-sm;
+}
+
+@mixin input-base {
+  width: 100%;
+  padding: v.$sp-3 v.$sp-4;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: v.$radius-md;
+  color: var(--text);
+  font-family: v.$font-body;
+  font-size: 0.95rem;
+  transition: border-color v.$t-fast, box-shadow v.$t-fast;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder { color: var(--text-muted); }
+
+  &:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  &.error {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+}
+
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$sp-2;
+  padding: v.$sp-3 v.$sp-6;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: v.$radius-full;
+  font-family: v.$font-body;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background v.$t-fast, transform v.$t-fast, box-shadow v.$t-fast;
+
+  &:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(200,75,47,.25);
+  }
+  &:active:not(:disabled) { transform: translateY(0); }
+  &:disabled { opacity: .5; cursor: not-allowed; }
+}
+
+@mixin chip {
+  display: inline-flex;
+  align-items: center;
+  padding: v.$sp-2 v.$sp-4;
+  border-radius: v.$radius-full;
+  background: var(--chip-bg);
+  color: var(--text);
+  border: none;
+  font-family: v.$font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background v.$t-fast, color v.$t-fast;
+  white-space: nowrap;
+
+  &:hover { background: var(--border); }
+
+  &.active {
+    background: var(--chip-active);
+    color: var(--chip-active-text);
+  }
+}
+
+@mixin section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$sp-8 v.$sp-6;
+
+  @include respond(v.$bp-md) { padding: v.$sp-6 v.$sp-4; }
+}
+
+@mixin grid-cards($min: 260px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: v.$sp-5;
+}

@@ -1,0 +1,30 @@
+@use '../../styles/variables' as v;
+
+.toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 500;
+  padding: v.$sp-3 v.$sp-6;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: v.$radius-full;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: v.$shadow-xl;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms v.$ease-out, transform 220ms v.$ease-out;
+  white-space: nowrap;
+  max-width: 90vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (min-width: 481px) { bottom: 32px; }
+
+  &.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

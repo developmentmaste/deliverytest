@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "restaurants": "Restaurants",
+    "promos": "Deals",
+    "orders": "Orders",
+    "profile": "Profile",
+    "cart": "Cart"
+  },
+  "hero": {
+    "title": "Delicious food,",
+    "titleEm": "fast delivery.",
+    "subtitle": "The best restaurants in the city — from borscht to sushi. Order in a minute, eat in twenty.",
+    "statRestaurants": "Restaurants",
+    "statDelivery": "Avg delivery",
+    "statRating": "Rating"
+  },
+  "shops": {
+    "title": "Restaurants",
+    "subtitle": "Choose a place and browse the menu",
+    "filterRating": "Rating",
+    "filterCuisine": "Cuisine",
+    "all": "All",
+    "notFound": "No restaurants found",
+    "notFoundHint": "Try adjusting your filters."
+  },
+  "products": {
+    "title": "Menu",
+    "filterCategory": "Category",
+    "filterSort": "Sort",
+    "sortDefault": "Default",
+    "sortPriceAsc": "Price: low to high",
+    "sortPriceDesc": "Price: high to low",
+    "sortNameAz": "Name: A → Z",
+    "backToShops": "← Back to restaurants",
+    "addToCart": "Add to cart",
+    "notFound": "No items found",
+    "notFoundHint": "Try a different category."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Cart is empty",
+    "emptyHint": "Go back to restaurants and add some dishes.",
+    "browse": "Browse restaurants",
+    "checkout": "Checkout",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Delivery address",
+    "promo": "Promo code",
+    "promoPlaceholder": "WELCOME10",
+    "promoApply": "Apply",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "delivery": "Delivery",
+    "tax": "Service fee (5%)",
+    "total": "Total",
+    "submit": "Place order →",
+    "submitting": "Sending...",
+    "free": "Free",
+    "errEmail": "Enter a valid email.",
+    "errPhone": "Enter a valid phone number (min 9 digits).",
+    "errAddress": "Enter a delivery address (min 5 chars).",
+    "promoNotFound": "Promo code not found or expired.",
+    "promoMinOrder": "Minimum order for this code: ₴{{min}}.",
+    "promoApplied": "🎉 Promo code {{code}} applied",
+    "toastAdded": "✅ {{name}} added to cart",
+    "mixed": "You cannot mix items from different restaurants."
+  },
+  "modal": {
+    "title": "Order placed!",
+    "text": "Your food is already being prepared. Confirmation will arrive shortly.",
+    "track": "Track order →"
+  },
+  "history": {
+    "title": "Order History",
+    "findByEmail": "Find by email",
+    "orOrderId": "Or order number",
+    "orderIdPlaceholder": "#ORD-XXXXXXXX",
+    "search": "Search",
+    "emptyTitle": "Find your orders",
+    "emptyHint": "Enter your email or order number.",
+    "notFound": "No orders found",
+    "reorder": "↺ Reorder",
+    "reordered": "🔄 Items added to cart",
+    "errEmail": "Enter an email or order number.",
+    "status": {
+      "pending": "Pending",
+      "preparing": "Preparing",
+      "delivering": "On the way",
+      "delivered": "Delivered"
+    }
+  },
+  "promos": {
+    "title": "🎁 Deals & Coupons",
+    "subtitle": "Copy the code and enter it at checkout",
+    "minOrder": "Min order: ₴{{min}}",
+    "until": "until {{date}}",
+    "copy": "Copy",
+    "copied": "✓ Copied",
+    "toastCopied": "📋 Promo code {{code}} copied"
+  },
+  "profile": {
+    "title": "Profile",
+    "guest": "Guest",
+    "noEmail": "Not set",
+    "orders": "Orders",
+    "delivery": "Delivery",
+    "personal": "Personal info",
+    "name": "Name",
+    "namePlaceholder": "John Doe",
+    "email": "Email",
+    "address": "Default address",
+    "addressPlaceholder": "123 Main St",
+    "phone": "Phone number",
+    "save": "Save",
+    "saved": "✅ Saved",
+    "settings": "Settings",
+    "darkTheme": "Dark theme",
+    "darkThemeDesc": "Switch to night mode"
+  },
+  "lang": {
+    "label": "Language",
+    "uk": "Українська",
+    "en": "English"
+  }
+}

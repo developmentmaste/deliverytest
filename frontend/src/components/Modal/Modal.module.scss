@@ -1,0 +1,52 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: v.$sp-4;
+  animation: fadeIn 220ms v.$ease-out both;
+}
+
+.modal {
+  @include m.card;
+  max-width: 420px;
+  width: 100%;
+  padding: v.$sp-10 v.$sp-8;
+  text-align: center;
+  animation: slideUp 300ms v.$ease-out both;
+}
+
+.icon   { font-size: 3.5rem; margin-bottom: v.$sp-4; }
+.title  { font-family: v.$font-display; font-size: 1.75rem; margin-bottom: v.$sp-3; }
+.text   { color: var(--text-muted); line-height: 1.6; margin-bottom: v.$sp-4; }
+
+.orderId {
+  font-family: v.$font-mono;
+  font-size: 0.9rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: v.$sp-2 v.$sp-4;
+  border-radius: v.$radius-sm;
+  display: inline-block;
+  margin-bottom: v.$sp-6;
+  letter-spacing: .05em;
+}
+
+.btn { @include m.btn-primary; width: 100%; justify-content: center; }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0)     scale(1); }
+}

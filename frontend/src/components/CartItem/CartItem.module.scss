@@ -1,0 +1,93 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-4;
+  padding: v.$sp-4;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: v.$radius-md;
+  margin-bottom: v.$sp-3;
+  transition: border-color v.$t-fast;
+
+  &:hover { border-color: var(--accent); }
+}
+
+.emoji {
+  font-size: 2rem;
+  width: 48px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.info { flex: 1; min-width: 0; }
+
+.name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shop {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 2px 0 v.$sp-1;
+}
+
+.price {
+  font-family: v.$font-mono;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-2;
+  flex-shrink: 0;
+}
+
+.qtyBtn {
+  width: 30px; height: 30px;
+  border-radius: v.$radius-sm;
+  border: 1.5px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all v.$t-fast;
+
+  &:hover { border-color: var(--accent); color: var(--accent); }
+}
+
+.qtyNum {
+  font-family: v.$font-mono;
+  font-weight: 700;
+  min-width: 1.5ch;
+  text-align: center;
+}
+
+.remove {
+  width: 30px; height: 30px;
+  border-radius: v.$radius-sm;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color v.$t-fast, background v.$t-fast;
+  flex-shrink: 0;
+
+  &:hover { color: var(--accent); background: var(--accent-soft); }
+}

@@ -1,0 +1,54 @@
+:root,
+[data-theme='light'] {
+  --bg:          #f7f4ef;
+  --bg-card:     #ffffff;
+  --bg-input:    #f0ece6;
+  --bg-nav:      rgba(247, 244, 239, 0.88);
+
+  --text:        #1a1410;
+  --text-muted:  #7a6f65;
+  --text-inv:    #ffffff;
+
+  --accent:      #c84b2f;
+  --accent-hover:#a33a21;
+  --accent-soft: rgba(200, 75, 47, 0.10);
+
+  --border:      rgba(26, 20, 16, 0.10);
+  --border-focus:rgba(200, 75, 47, 0.50);
+
+  --chip-bg:     #eae6e0;
+  --chip-active: #1a1410;
+  --chip-active-text: #f7f4ef;
+
+  --badge-bg:    #1a1410;
+  --badge-text:  #f7f4ef;
+
+  --nav-h:       64px;
+}
+
+[data-theme='dark'] {
+  --bg:          #141210;
+  --bg-card:     #1e1b18;
+  --bg-input:    #2a2620;
+  --bg-nav:      rgba(20, 18, 16, 0.92);
+
+  --text:        #f0ece6;
+  --text-muted:  #9a8f85;
+  --text-inv:    #1a1410;
+
+  --accent:      #e05c3a;
+  --accent-hover:#f06e4a;
+  --accent-soft: rgba(224, 92, 58, 0.12);
+
+  --border:      rgba(240, 236, 230, 0.10);
+  --border-focus:rgba(224, 92, 58, 0.50);
+
+  --chip-bg:     #2a2620;
+  --chip-active: #f0ece6;
+  --chip-active-text: #1a1410;
+
+  --badge-bg:    #f0ece6;
+  --badge-text:  #1a1410;
+
+  --nav-h:       64px;
+}

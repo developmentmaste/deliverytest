@@ -1,0 +1,16 @@
+{
+  "name": "clover",
+  "version": "1.0.0",
+  "description": "Food delivery web app — **Advanced level** (ElifTech School test task).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

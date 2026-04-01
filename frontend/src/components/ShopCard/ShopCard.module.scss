@@ -1,0 +1,75 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.card {
+  @include m.card;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform v.$t-base, box-shadow v.$t-base, border-color v.$t-fast;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: v.$shadow-lg;
+  }
+
+  &.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft), v.$shadow-md;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: v.$sp-3;
+  left: v.$sp-3;
+  padding: v.$sp-1 v.$sp-3;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  border-radius: v.$radius-full;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.img {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  background: var(--bg-input);
+}
+
+.body { padding: v.$sp-4; }
+
+.name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: v.$sp-1;
+}
+
+.cuisine {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: v.$sp-3;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-4;
+}
+
+.rating {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.time {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}

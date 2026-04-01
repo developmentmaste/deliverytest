@@ -1,0 +1,36 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.page { padding-bottom: v.$sp-16; }
+
+.searchBox {
+  @include m.card;
+  padding: v.$sp-6;
+  max-width: 560px;
+  margin: v.$sp-6 0 v.$sp-8;
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-4;
+}
+
+.orDivider {
+  display: flex;
+  align-items: center;
+  gap: v.$sp-3;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+
+  &::before, &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+}
+
+.searchBtn {
+  @include m.btn-primary;
+  align-self: flex-start;
+}
+
+.results { margin-top: v.$sp-4; }

@@ -1,0 +1,99 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.page { padding-bottom: v.$sp-16; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: v.$sp-8;
+  margin-top: v.$sp-6;
+
+  @include m.respond(v.$bp-lg)  { grid-template-columns: 1fr 340px; }
+  @include m.respond(v.$bp-md)  { grid-template-columns: 1fr; }
+}
+
+.items { min-width: 0; }
+
+// ── Order panel ───────────────────────────────
+.panel {
+  @include m.card;
+  padding: v.$sp-6;
+  height: fit-content;
+  position: sticky;
+  top: calc(var(--nav-h) + v.$sp-4);
+}
+
+.panelTitle {
+  font-family: v.$font-display;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: v.$sp-5;
+}
+
+.promoRow {
+  display: flex;
+  gap: v.$sp-2;
+}
+
+.applyBtn {
+  padding: v.$sp-3 v.$sp-4;
+  border-radius: v.$radius-md;
+  border: 1.5px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all v.$t-fast;
+
+  &:hover { background: var(--accent); color: #fff; }
+}
+
+.promoApplied {
+  margin-top: v.$sp-2;
+  font-size: 0.82rem;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: v.$sp-4 0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: v.$sp-2;
+  color: var(--text-muted);
+}
+
+.discountRow { color: #16a34a; font-weight: 600; }
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: v.$sp-4 0 v.$sp-5;
+  padding-top: v.$sp-4;
+  border-top: 2px solid var(--border);
+}
+
+.submitBtn {
+  @include m.btn-primary;
+  width: 100%;
+  font-size: 1rem;
+  padding: v.$sp-4;
+}
+
+.browseBtn {
+  @include m.btn-primary;
+  margin-top: v.$sp-4;
+}

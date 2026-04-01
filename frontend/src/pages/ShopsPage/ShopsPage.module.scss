@@ -1,0 +1,124 @@
+@use '../../styles/variables' as v;
+@use '../../styles/mixins' as m;
+
+.page { padding-bottom: v.$sp-16; }
+
+// ── Hero ──────────────────────────────────────
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$sp-12 v.$sp-6 v.$sp-10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: v.$sp-8;
+
+  @include m.respond(v.$bp-lg) { padding: v.$sp-10 v.$sp-6 v.$sp-8; }
+  @include m.respond(v.$bp-md) { flex-direction: column; padding: v.$sp-8 v.$sp-4; }
+
+  &__text {
+    max-width: 560px;
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: v.$sp-4;
+
+      em {
+        font-style: italic;
+        color: var(--accent);
+      }
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: v.$sp-8;
+      max-width: 480px;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: v.$sp-8;
+  }
+
+  &__pills {
+    display: flex;
+    flex-direction: column;
+    gap: v.$sp-3;
+    align-items: flex-start;
+
+    @include m.respond(v.$bp-md) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: v.$sp-1;
+}
+
+.statNum {
+  font-family: v.$font-mono;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.statLbl {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.pill {
+  padding: v.$sp-2 v.$sp-4;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: v.$radius-full;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: v.$shadow-sm;
+}
+
+// ── Sections ──────────────────────────────────
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: v.$sp-8 v.$sp-6;
+  border-top: 1px solid var(--border);
+
+  @include m.respond(v.$bp-md) { padding: v.$sp-6 v.$sp-4; }
+}
+
+.shopsGrid   { @include m.grid-cards(200px); }
+.productsGrid { @include m.grid-cards(220px); }
+
+// ── Loading skeletons ─────────────────────────
+.loading { @include m.grid-cards(220px); }
+
+.skeleton {
+  height: 240px;
+  border-radius: v.$radius-lg;
+  background: linear-gradient(
+    90deg,
+    var(--bg-input) 25%,
+    var(--border)   50%,
+    var(--bg-input) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
