@@ -21,7 +21,19 @@
     "filterCuisine": "Cuisine",
     "all": "All",
     "notFound": "No restaurants found",
-    "notFoundHint": "Try adjusting your filters."
+    "notFoundHint": "Try adjusting your filters.",
+    "cuisines": {
+      "ukrainian": "Ukrainian",
+      "asian": "Asian",
+      "italian": "Italian",
+      "healthy": "Healthy"
+    },
+    "heroPills": {
+      "trending": "🔥 {{shop}} is trending",
+      "fast": "⚡ 15 min · Downtown",
+      "new": "🆕 {{shop}}",
+      "deal": "🎁 WELCOME10 — 10%"
+    }
   },
   "products": {
     "title": "Menu",
@@ -45,6 +57,7 @@
     "email": "Email",
     "phone": "Phone",
     "address": "Delivery address",
+    "addressPlaceholder": "123 Main St",
     "promo": "Promo code",
     "promoPlaceholder": "WELCOME10",
     "promoApply": "Apply",

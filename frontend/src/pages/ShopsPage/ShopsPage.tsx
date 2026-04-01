@@ -8,11 +8,16 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import type { Shop, Product } from '../../types';
 import s from './ShopsPage.module.scss';
 
-const CUISINES = ['Українська', 'Азійська', 'Італійська', 'Здорове'];
 const PAGE_SIZE = 6;
 
 export default function ShopsPage() {
   const { t } = useTranslation();
+  const CUISINES = [
+    t('shops.cuisines.ukrainian'),
+    t('shops.cuisines.asian'),
+    t('shops.cuisines.italian'),
+    t('shops.cuisines.healthy'),
+  ];
   const toast  = useToastStore((st) => st.show);
   const addToCart = useCartStore((st) => st.addToCart);
   const cart   = useCartStore((st) => st.cart);
@@ -84,7 +89,7 @@ export default function ShopsPage() {
   };
 
   return (
-    <div className={s.page}>
+    <div className={s.shopsPage}>
       {/* Hero */}
       <section className={s.hero}>
         <div className={s.hero__text}>
@@ -94,21 +99,21 @@ export default function ShopsPage() {
           </h1>
           <p>{t('hero.subtitle')}</p>
           <div className={s.hero__stats}>
-            <div className={s.stat}><span className={s.statNum}>9</span><span className={s.statLbl}>{t('hero.statRestaurants')}</span></div>
-            <div className={s.stat}><span className={s.statNum}>20′</span><span className={s.statLbl}>{t('hero.statDelivery')}</span></div>
-            <div className={s.stat}><span className={s.statNum}>4.7★</span><span className={s.statLbl}>{t('hero.statRating')}</span></div>
+            <div className={s.statCard}><span className={s.statNumber}>9</span><span className={s.statLabel}>{t('hero.statRestaurants')}</span></div>
+            <div className={s.statCard}><span className={s.statNumber}>20′</span><span className={s.statLabel}>{t('hero.statDelivery')}</span></div>
+            <div className={s.statCard}><span className={s.statNumber}>4.7★</span><span className={s.statLabel}>{t('hero.statRating')}</span></div>
           </div>
         </div>
         <div className={s.hero__pills}>
-          <div className={s.pill}>🔥 {t('shops.title')}: Хата з борщем</div>
-          <div className={s.pill}>⚡ 15 хв · Центр</div>
-          <div className={s.pill}>🆕 Галицька кухня</div>
-          <div className={s.pill}>🎁 WELCOME10 — 10%</div>
+          <div className={s.pill}>{t('shops.heroPills.trending', { shop: 'Borscht House' })}</div>
+          <div className={s.pill}>{t('shops.heroPills.fast')}</div>
+          <div className={s.pill}>{t('shops.heroPills.new', { shop: 'Galician Cuisine' })}</div>
+          <div className={s.pill}>{t('shops.heroPills.deal')}</div>
         </div>
       </section>
 
       {/* Shops section */}
-      <section className={s.section}>
+      <section className={s.sectionBlock}>
         <div className="section-header">
           <div>
             <div className="section-title">{t('shops.title')}</div>
@@ -169,7 +174,7 @@ export default function ShopsPage() {
 
       {/* Products section */}
       {selectedShop && (
-        <section className={s.section} ref={productsRef}>
+        <section className={s.sectionBlock} ref={productsRef}>
           <div className="section-header">
             <div>
               <div className="section-title">{selectedShop.name}</div>

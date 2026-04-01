@@ -1,7 +1,7 @@
 @use '../../styles/variables' as v;
 @use '../../styles/mixins' as m;
 
-.page { padding-bottom: v.$sp-16; }
+.shopsPage { padding-bottom: v.$sp-16; }
 
 // ── Hero ──────────────────────────────────────
 .hero {
@@ -58,27 +58,27 @@
   }
 }
 
-.stat {
+.statCard {
   display: flex;
   flex-direction: column;
   gap: v.$sp-1;
 }
 
-.statNum {
+.statNumber {
   font-family: v.$font-mono;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
 }
 
-.statLbl {
+.statLabel {
   font-size: 0.75rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: .05em;
 }
 
-.pill {
+.badgePill {
   padding: v.$sp-2 v.$sp-4;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -90,7 +90,7 @@
 }
 
 // ── Sections ──────────────────────────────────
-.section {
+.sectionBlock {
   max-width: 1200px;
   margin: 0 auto;
   padding: v.$sp-8 v.$sp-6;

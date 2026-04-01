@@ -7,11 +7,11 @@ dotenv.config();
 const URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/clover-delivery';
 
 const SHOPS_DATA = [
-  { name: 'Хата з борщем',   cuisine: 'Українська', rating: 4.9, time: '15–20 хв', emoji: '🍲', badge: 'Популярне' },
-  { name: 'Вареничня №1',    cuisine: 'Українська', rating: 4.7, time: '20–25 хв', emoji: '🥟', badge: null },
-  { name: 'Шинок Козацький', cuisine: 'Українська', rating: 4.5, time: '25–35 хв', emoji: '🫕', badge: null },
-  { name: 'Галицька кухня',  cuisine: 'Українська', rating: 4.8, time: '20–30 хв', emoji: '🥣', badge: 'Нове' },
-  { name: 'Sakura Ramen',    cuisine: 'Азійська',   rating: 4.6, time: '20–25 хв', emoji: '🍜', badge: null },
+  { name: 'Borscht House',   cuisine: 'Ukrainian', rating: 4.9, time: '15–20 min', emoji: '🍲', badge: 'Popular' },
+  { name: 'Dumpling House #1',    cuisine: 'Ukrainian', rating: 4.7, time: '20–25 min', emoji: '🥟', badge: null },
+  { name: 'Cossack Tavern', cuisine: 'Ukrainian', rating: 4.5, time: '25–35 min', emoji: '🫕', badge: null },
+  { name: 'Galician Kitchen',  cuisine: 'Ukrainian', rating: 4.8, time: '20–30 min', emoji: '🥣', badge: 'New' },
+  { name: 'Sakura Ramen',    cuisine: 'Asian',   rating: 4.6, time: '20–25 min', emoji: '🍜', badge: null },
   { name: 'Dragon Wok',      cuisine: 'Азійська',   rating: 4.5, time: '20–28 хв', emoji: '🥡', badge: null },
   { name: 'La Bella Pasta',  cuisine: 'Італійська', rating: 4.3, time: '25–30 хв', emoji: '🍝', badge: null },
   { name: 'Pizza Paradiso',  cuisine: 'Італійська', rating: 3.5, time: '30–40 хв', emoji: '🍕', badge: null },

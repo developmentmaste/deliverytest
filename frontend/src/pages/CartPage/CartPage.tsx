@@ -145,7 +145,7 @@ export default function CartPage() {
 
             <div className="form-group">
               <label className="form-label">{t('cart.address')}</label>
-              <input type="text" placeholder="вул. Шевченка, 10" {...field('address')} />
+              <input type="text" placeholder={t('cart.addressPlaceholder')} {...field('address')} />
               {errors.address && <div className="form-error show">{errors.address}</div>}
             </div>
 

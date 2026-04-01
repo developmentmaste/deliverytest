@@ -21,7 +21,19 @@
     "filterCuisine": "Кухня",
     "all": "Всі",
     "notFound": "Ресторани не знайдено",
-    "notFoundHint": "Спробуйте змінити фільтри."
+    "notFoundHint": "Спробуйте змінити фільтри.",
+    "cuisines": {
+      "ukrainian": "Українська",
+      "asian": "Азійська",
+      "italian": "Італійська",
+      "healthy": "Здорове"
+    },
+    "heroPills": {
+      "trending": "🔥 {{shop}} популярне",
+      "fast": "⚡ 15 хв · Центр",
+      "new": "🆕 {{shop}}",
+      "deal": "🎁 WELCOME10 — 10%"
+    }
   },
   "products": {
     "title": "Меню",
@@ -45,6 +57,7 @@
     "email": "Email",
     "phone": "Телефон",
     "address": "Адреса доставки",
+    "addressPlaceholder": "вул. Шевченка, 10",
     "promo": "Промокод",
     "promoPlaceholder": "WELCOME10",
     "promoApply": "Застосувати",

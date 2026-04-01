@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
-import Toast from './components/Toast/Toast';
 import ShopsPage from './pages/ShopsPage/ShopsPage';
 import CartPage from './pages/CartPage/CartPage';
 import HistoryPage from './pages/HistoryPage/HistoryPage';
@@ -35,7 +34,6 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-      <Toast />
     </div>
   );
 }
