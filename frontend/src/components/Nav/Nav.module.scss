@@ -29,7 +29,7 @@
     font-family: v.$font-display;
     font-size: 1.5rem;
     font-weight: 900;
-    color: var(--text);
+    color: #000000;
     cursor: pointer;
     letter-spacing: -0.02em;
 
@@ -46,14 +46,14 @@
 
   &__btn {
     padding: v.$sp-2 v.$sp-3;
-    border-radius: v.$radius-md;
-    border: none;
-    background: transparent;
-    color: var(--text-muted);
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
-    transition: color v.$t-fast, background v.$t-fast;
+    transition: all v.$t-fast;
     white-space: nowrap;
 
     @include m.respond(v.$bp-md) {
@@ -62,38 +62,34 @@
     }
     @include m.respond(v.$bp-sm) { display: none; }
 
-    &:hover { color: var(--text); background: var(--chip-bg); }
+    &:hover {
+      color: var(--text);
+      background: var(--chip-bg);
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
 
     &.active {
-      color: var(--text);
-      font-weight: 600;
+      color: #ffffff;
+      font-weight: 700;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(0, 118, 255, 0.35);
     }
   }
 
   &__icon-btn {
-    width: 38px; height: 38px;
-    border-radius: v.$radius-md;
-    border: 1.5px solid var(--border);
-    background: var(--bg-card);
-    color: var(--text);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: all v.$t-fast;
-    flex-shrink: 0;
-
-    &:hover { border-color: var(--accent); color: var(--accent); }
+    display: none;
   }
 
-  &__cart-btn {
-    display: flex;
+  &__cart_btn {
+    position: relative;
+    display: inline-flex;
     align-items: center;
-    gap: v.$sp-2;
-    padding: v.$sp-2 v.$sp-4;
-    border-radius: v.$radius-full;
-    border: 1.5px solid var(--border);
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
     background: var(--bg-card);
     color: var(--text);
     font-size: 0.9rem;
@@ -101,27 +97,57 @@
     cursor: pointer;
     transition: all v.$t-fast;
     white-space: nowrap;
+    min-height: 34px;
 
     &:hover {
       border-color: var(--accent);
       background: var(--accent-soft);
+      color: var(--text);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
+
+    &.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.20);
+    }
+  }
+
+  &__cart_icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+  }
+
+  &__cart_text {
+    display: inline-block;
+    font-weight: 600;
   }
 
   &__badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 v.$sp-1;
-    border-radius: v.$radius-full;
-    background: var(--accent);
+    margin-left: 0.3rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    border: 2px solid var(--bg-nav);
+    background: #ff3b30;
     color: #fff;
     font-size: 0.7rem;
     font-weight: 700;
     font-family: v.$font-mono;
     line-height: 1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
   }
 
   &__divider {
@@ -133,37 +159,34 @@
     @include m.respond(v.$bp-sm) { display: none; }
   }
 
-  // Lang toggle inside nav
+  // Lang dropdown inside nav
   &__lang {
     display: flex;
     align-items: center;
-    gap: v.$sp-1;
-    border-radius: v.$radius-full;
+    border-radius: v.$radius-md;
     border: 1.5px solid var(--border);
     background: var(--bg-input);
-    padding: 2px;
+    padding: 0 6px;
     flex-shrink: 0;
   }
 
-  &__lang-btn {
-    padding: 4px v.$sp-3;
+  &__lang_select {
     border: none;
     background: transparent;
-    color: var(--text-muted);
+    color: var(--text);
     font-family: v.$font-mono;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    padding: 8px 10px;
     cursor: pointer;
-    border-radius: v.$radius-full;
-    transition: all v.$t-fast;
-    line-height: 1.4;
+    line-height: 1.2;
+    appearance: none;
+    outline: none;
+    min-width: 90px;
+  }
 
-    &.active {
-      background: var(--chip-active);
-      color: var(--chip-active-text);
-    }
-
-    &:hover:not(.active) { color: var(--text); }
+  &__lang_select:focus {
+    box-shadow: 0 0 0 2px var(--accent-soft);
   }
 }
 

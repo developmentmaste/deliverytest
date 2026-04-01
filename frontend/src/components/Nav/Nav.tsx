@@ -54,32 +54,39 @@ export default function Nav({ theme, toggleTheme }: NavProps) {
 
             <div className={s.nav__divider} />
 
-            {/* Language toggle */}
+            {/* Language dropdown */}
             <div className={s.nav__lang}>
-              <button
-                className={`${s.nav__lang_btn} ${i18n.language === 'uk' ? s.active : ''}`}
-                onClick={() => changeLang('uk')}
+              <select
+                className={s.nav__lang_select}
+                value={i18n.language}
+                onChange={(e) => changeLang(e.target.value)}
+                aria-label={t('nav.language')}
               >
-                УКР
-              </button>
-              <button
-                className={`${s.nav__lang_btn} ${i18n.language === 'en' ? s.active : ''}`}
-                onClick={() => changeLang('en')}
-              >
-                ENG
-              </button>
+                <option value="uk">УКР</option>
+                <option value="en">ENG</option>
+              </select>
             </div>
 
             <div className={s.nav__divider} />
 
             {/* Theme */}
-            <button className={s.nav__icon_btn} onClick={toggleTheme} title="Toggle theme">
+            <button
+              className={`${s.nav__btn} ${theme === 'dark' ? s.active : ''}`}
+              onClick={toggleTheme}
+              title="Toggle theme"
+            >
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
 
             {/* Cart */}
-            <button className={s.nav__cart_btn} onClick={() => navigate('/cart')}>
-              🛒 {t('nav.cart')}
+            <button
+              className={`${s.nav__cart_btn} ${isActive('/cart') ? s.active : ''}`}
+              onClick={() => navigate('/cart')}
+            >
+              {totalItems === 0 ? (
+                <span className={s.nav__cart_icon}>🛒</span>
+              ) : null}
+              <span className={s.nav__cart_text}>{t('nav.cart')}</span>
               {totalItems > 0 && <span className={s.nav__badge}>{totalItems}</span>}
             </button>
           </div>

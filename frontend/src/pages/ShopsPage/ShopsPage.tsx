@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { fetchShops, fetchProducts, fetchCategories } from '../../api';
 import { useCartStore } from '../../store/cartStore';
@@ -12,18 +12,36 @@ const PAGE_SIZE = 6;
 
 export default function ShopsPage() {
   const { t } = useTranslation();
-  const CUISINES = [
-    t('shops.cuisines.ukrainian'),
-    t('shops.cuisines.asian'),
-    t('shops.cuisines.italian'),
-    t('shops.cuisines.healthy'),
-  ];
-  const toast  = useToastStore((st) => st.show);
+  const CUISINE_MAP: Record<string, string> = {
+    'Українська': 'Українська',
+    'Ukrainian': 'Українська',
+    'Азійська': 'Азійська',
+    'Asian': 'Азійська',
+    'Італійська': 'Італійська',
+    'Italian': 'Італійська',
+    'Здорове': 'Здорове',
+    'Healthy': 'Здорове',
+  };
+
+  const CUISINE_LABELS: Record<string, string> = {
+    'Українська': t('shops.cuisines.ukrainian'),
+    'Азійська': t('shops.cuisines.asian'),
+    'Італійська': t('shops.cuisines.italian'),
+    'Здорове': t('shops.cuisines.healthy'),
+  };
+
+  const toast = useToastStore((st) => st.show);
   const addToCart = useCartStore((st) => st.addToCart);
   const cart   = useCartStore((st) => st.cart);
 
   // Shops state
   const [shops, setShops]         = useState<Shop[]>([]);
+
+  const cuisineOptions = useMemo(
+    () =>
+      Array.from(new Set(shops.map((sh) => CUISINE_MAP[sh.cuisine] ?? sh.cuisine))).sort(),
+    [shops]
+  );
   const [ratingFilter, setRating] = useState('all');
   const [cuisineFilter, setCuisine] = useState('all');
 
@@ -75,15 +93,18 @@ export default function ShopsPage() {
     const rOk = ratingFilter === 'all'
       ? true
       : sh.rating >= parseFloat(ratingFilter) && sh.rating < parseFloat(ratingFilter) + 1;
-    const cOk = cuisineFilter === 'all' || sh.cuisine === cuisineFilter;
+    const normalizedCuisine = CUISINE_MAP[sh.cuisine] ?? sh.cuisine;
+    const cOk = cuisineFilter === 'all' || normalizedCuisine === cuisineFilter;
     return rOk && cOk;
   });
 
   const handleAddToCart = (product: Product) => {
     if (cart.length > 0 && cart[0].shopId !== product.shopId) {
-      toast(t('cart.mixed'));
-      return;
+      const confirmed = window.confirm(t('cart.confirmMixed'));
+      if (!confirmed) return;
+      useCartStore.getState().clearCart();
     }
+
     addToCart({ ...product, shopName: selectedShop?.name ?? '' });
     toast(t('cart.toastAdded', { name: product.name }));
   };
@@ -143,9 +164,13 @@ export default function ShopsPage() {
               <button className={`chip ${cuisineFilter === 'all' ? 'active' : ''}`} onClick={() => setCuisine('all')}>
                 {t('shops.all')}
               </button>
-              {CUISINES.map((c) => (
-                <button key={c} className={`chip ${cuisineFilter === c ? 'active' : ''}`} onClick={() => setCuisine(c)}>
-                  {c}
+              {cuisineOptions.map((c) => (
+                <button
+                  key={c}
+                  className={`chip ${cuisineFilter === c ? 'active' : ''}`}
+                  onClick={() => setCuisine(c)}
+                >
+                  {CUISINE_LABELS[c] ?? c}
                 </button>
               ))}
             </div>

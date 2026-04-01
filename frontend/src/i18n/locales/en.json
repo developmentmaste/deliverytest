@@ -76,7 +76,8 @@
     "promoMinOrder": "Minimum order for this code: ₴{{min}}.",
     "promoApplied": "🎉 Promo code {{code}} applied",
     "toastAdded": "✅ {{name}} added to cart",
-    "mixed": "You cannot mix items from different restaurants."
+    "mixed": "You cannot mix items from different restaurants.",
+    "confirmMixed": "Your cart has items from another restaurant. Clear cart and add this item?"
   },
   "modal": {
     "title": "Order placed!",

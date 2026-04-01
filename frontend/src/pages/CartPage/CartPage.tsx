@@ -16,7 +16,12 @@ export default function CartPage() {
   const { t }  = useTranslation();
   const navigate = useNavigate();
   const toast  = useToastStore((st) => st.show);
-  const { cart, promo, setPromo, clearCart } = useCartStore();
+  const cart = useCartStore((st) => st.cart);
+  const promo = useCartStore((st) => st.promo);
+  const setPromo = useCartStore((st) => st.setPromo);
+  const clearCart = useCartStore((st) => st.clearCart);
+  const changeQty = useCartStore((st) => st.changeQty);
+  const removeFromCart = useCartStore((st) => st.removeFromCart);
 
   const [form, setForm]       = useState<FormState>({ email: '', phone: '', address: '' });
   const [errors, setErrors]   = useState<FormErrors>({ email: '', phone: '', address: '' });
@@ -124,7 +129,14 @@ export default function CartPage() {
         <div className={s.layout}>
           {/* Cart items */}
           <div className={s.items}>
-            {cart.map((item) => <CartItemComp key={item._id} item={item} />)}
+            {cart.map((item) => (
+              <CartItemComp
+                key={item._id}
+                item={item}
+                onChangeQty={changeQty}
+                onRemove={removeFromCart}
+              />
+            ))}
           </div>
 
           {/* Order panel */}
