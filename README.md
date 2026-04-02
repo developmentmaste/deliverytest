@@ -1,3 +1,6 @@
+##DEPLOY 
+https://deliverytestw.onrender.com/
+
 # 🍀 Clover Delivery
 
 Веб-додаток для замовлення їжі — тестове завдання ElifTech School (Advanced level).
