@@ -1,5 +1,6 @@
 # DEPLOY 
 https://deliverytestw.onrender.com/
+p.s. бекенд підгружається 1-2 хв через обмеження render
 
 # 🍀 Clover Delivery
 
